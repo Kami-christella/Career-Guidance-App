@@ -2,20 +2,16 @@ import '../styles/Services.css';
 import "bootstrap/dist/css/bootstrap.min.css"; // If using Bootstrap
 import "@fortawesome/fontawesome-free/css/all.min.css"; // Import FontAwesome CSS
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { FaBookReader } from "react-icons/fa";
 
-
-
-import React from "react";
 
 function Services() {
   return (
-    <div className="container1">
+    <div className="container15">
       <div className="service-wrapper">
         <div className="service">
           <div className="cards">
             <div className="card">
-            <i class="bi bi-journal-text"></i>
+            <i className="bi bi-journal-text"></i>
               <h2>Career assessments</h2>
               <p className="txt1">
               Our platform offers comprehensive career assessments that evaluate your skills, 

@@ -1,21 +1,25 @@
-import React from "react";
 import { Link } from 'react-router-dom';
-
 import { IoHome } from "react-icons/io5";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { RiHandCoinFill } from "react-icons/ri";
 import { GrTest } from "react-icons/gr";
-import { MdOutlineConnectWithoutContact } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-
+import '../styles/Navbar2.css'
+//import Login from './Login';
 
 function Navbar() {
+  // const [modal,setModal]= useState(false);
+  // const handleLoginForm = () =>
+  // {
+  //     setModal(!modal)
+  // }
     const navigate = useNavigate(); // Initialize navigation function
   return (
     <div>
+      {/* {modal && <LoginForm handleLoginForm={handleLoginForm}/>} */}
        {/* Navbar Start */}
-       <nav className="navbar navbar-dark bg-dark d-flex justify-content-between px-3">
+       <nav className="navbar navbar-dark bg-dark d-flex justify-content-between px-3 fixed-top">
         <span className="navbar-brand mb-0 h1 text-white">
           Career Guidance Platform
         </span>
@@ -32,30 +36,22 @@ function Navbar() {
         </button>
       </nav>
 
-      <div className="collapse bg-dark p-4" id="navbarToggleExternalContent">
-        {/* <h6 className="text-white">
-          <IoHome /> Home
-        </h6> */}
-        <Link to="/"><IoHome /> Home</Link>
-        <h6 className="text-white">
-          <FaPeopleRoof /> About
-        </h6>
-        <Link to="/Services"> <RiHandCoinFill /> Service</Link>
-        <h6 className="text-white">
-          <GrTest /> Take Career Test
-        </h6>
-    
-        <Link to="/Contact">  <MdEmail /> Contact</Link> <br/>
+      <div className="collapse bg-dark p-4 mt-5" id="navbarToggleExternalContent">
+        <Link to="/" className="d-block text-white" style={{textDecoration:'none'}}><IoHome className='iconsnav' /> Home</Link>
+        <Link to="/About" className="d-block text-white" style={{textDecoration:'none'}}><FaPeopleRoof className='iconsnav'  /> About</Link>
+        <Link to="/services" className="d-block text-white" style={{textDecoration:'none'}}><RiHandCoinFill className='iconsnav'  /> Service</Link>
+        <Link to="/CareerTest" className="d-block text-white" style={{textDecoration:'none'}}><GrTest className='iconsnav'  /> Take Career Test</Link>
+        <Link to="/contact" className="d-block text-white" style={{textDecoration:'none'}}><MdEmail className='iconsnav'  /> Contact</Link> <br/>
        
-        <span>
-          <button className="btn btn-primary">LOGIN</button>{" "}
-          <button className="btn btn-success">SIGNUP</button>
-        </span>
-        <span className="text-muted">Toggleable via the navbar brand.</span>
+        <div>
+        {/* onClick={handleLoginForm} */}
+        {/* onClick={() => navigate('/LoginForm')} style={{ cursor: 'pointer' }}  */}
+          <button className="btn btn-primary me-2"  onClick={() => navigate('/Login')} style={{ cursor: 'pointer' }}>LOGIN</button>
+          <button className="btn btn-success" onClick={() => navigate('/Signup')} style={{ cursor: 'pointer' }}>SIGNUP</button>
+        </div>
+        <span className="text-muted">Sign In </span>
       </div>
       {/* Navbar End */}
-
-    
     </div>
   );
 }

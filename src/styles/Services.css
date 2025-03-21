@@ -1,10 +1,10 @@
 
 
-.container1{
+.container15{
     min-height: 100vh;
     width: 100%;
-    background-color: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important; 
-
+    /* background-color: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;  */
+background-color: white;
     *{
         margin: 0;
         padding: 0;
@@ -34,7 +34,7 @@ h1{
     -webkit-text-stroke-color: transparent;
     letter-spacing: 4px;
     background-color: rgb(4, 52, 83);
-    background: linear-gradient(8deg,rgba(8,52,83,1) 0%,rgba(0,230,173,1) 41%, rgba(41,17,45,1) 100%);
+    background: linear-gradient(8deg,rgba(8,52,83,1) 0%,#198754(0,230,173,1) 41%, rgba(41,17,45,1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -57,7 +57,7 @@ h1 span{
     height: 8px;
     width: 8px;
     border-radius: 50%;
-    background-color: #72e2ae;
+    background-color: #198754;
     animation: anim 5s linear infinite;
 }
 @keyframes anim {
@@ -111,7 +111,7 @@ h1 span{
 }
 .card i
 {
-    color: #72e2ae;
+    color: #198754;
     margin-top: 30px;
     margin-bottom: 20px;
     font-size: 4.8rem;
@@ -137,6 +137,10 @@ h1 span{
 } 
 .card:hover i{
     color: #00ff37;
+}
+.card:hover h2,
+.card:hover p {
+    color: black; /* Change text color to black on hover */
 }
 @media screen and (max-width:1200px) {
     .cards{
