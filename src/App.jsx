@@ -43,7 +43,7 @@ function App() {
           <Route path='assessment2' element={<Assessment2 />} />
           <Route path='Assessment2/assessment3' element={<Assesment3 />} />
           <Route path='Orders' element={<Orders />} />
-          {/* <Route path='content2' element={<Content2 />} /> */}
+          {/* <Route path='content2' element={<Content2 />} /> */} 
         </Route>
       </Routes>
     </BrowserRouter>
