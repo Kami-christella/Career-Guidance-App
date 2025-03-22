@@ -1,4 +1,4 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
@@ -15,7 +15,7 @@ import CareerTest from './Dashboard/CareerTest';
 import Assessment2 from './Dashboard/Assessment2';
 import Assesment3 from './Dashboard/Assessment3';
 import Orders from './Dashboard/Orders'
-import NewDash from './Dashboard/NewDash';
+//import NewDash from './Dashboard/NewDash';
 // import Content2 from './Dashboard/Content2';
 //mozambi....
 
