@@ -16,13 +16,17 @@ const UsestateHook = () => {
         const onsend = async (data) => {
             try {
                 const formData = {
-                    userName: data.userName,
-                    userEmail: data.userEmail,
-                    userPassword: data.userPassword
+                    // userName: data.userName,
+                    // userEmail: data.userEmail,
+                    // userPassword: data.userPassword
+                    name:data.name,
+                    email:data.email,
+                    password: data.password
                 };
     
                 const response = await axios.post(
-                    "http://localhost:5001/user/register",
+                    //"http://localhost:5001/user/register",
+                      "http://localhost:5000/api/register",
                     formData,
                     {
                         headers: {
@@ -52,7 +56,7 @@ const UsestateHook = () => {
            <div className="inputContainer">
             <IoPersonOutline className="icon2 personIcon2" />
             <input type="text" placeholder="Username" className="input" 
-            {...register('userName', { required: true })}
+            {...register('name', { required: true })}
             />
           </div>
 
@@ -60,7 +64,7 @@ const UsestateHook = () => {
           <div className="inputContainer">
             <MdOutlineEmail className="icon2 emailIcon2" />
             <input type="email" placeholder="Email" className="input" 
-               {...register('userEmail', { required: true })}
+               {...register('email', { required: true })}
             />
           </div>
 
@@ -68,7 +72,7 @@ const UsestateHook = () => {
           <div className="inputContainer">
             <RiLockPasswordLine className="icon2 passIcon2" />
             <input type="password" placeholder="Password" className="input" 
-            {...register('userPassword', { required: true })}
+            {...register('password', { required: true })}
             />
             {/* <IoMdEyeOff className="icon2 eyeIcon" /> */}
           

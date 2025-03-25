@@ -1,7 +1,7 @@
 import { LuLogIn } from "react-icons/lu";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { MdOutlineEmail } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import {Notify} from "notiflix"
@@ -18,12 +18,15 @@ const UsestateHook = () => {
         const onsend = async (data) => {
             try {
                 const formData = {
-                  userEmail: data.userEmail,
-                  userPassword: data.userPassword
+                  // userEmail: data.userEmail,
+                  // userPassword: data.userPassword
+                  email:data.email,
+                  password:data.password
                 };
     
                 const response = await axios.post(
-                    "http://localhost:5001/user/login",
+                    // "http://localhost:5001/user/login",
+                    "http://localhost:5000/api/login",
                     formData,
                  
                     {
@@ -39,13 +42,13 @@ const UsestateHook = () => {
                     const userToken=response.data;
                     localStorage.setItem("userToken", JSON.stringify(userToken))
                     const userRole = userToken?.user?.userRole;
-                   
-                     console.log("user Roles",userRole)
-                    if (userRole === "admin"){
-                        navigate("/DashboardLayout")
-                    } else{
-                         navigate("/")
-                    }
+                    navigate("/dashboard")
+                    //  console.log("user Roles",userRole)
+                    // if (userRole === "user"){
+                    //     navigate("/DashboardLayout")
+                    // } else{
+                    //      navigate("/")
+                    // }
 
                 //alert("Account logged In  successfully");
                 console.log("Account logged In successfully:", response.data);
@@ -70,7 +73,7 @@ const UsestateHook = () => {
           <div className="inputContainer">
             <MdOutlineEmail className="icon2 emailIcon2" />
             <input type="email" placeholder="Email" className="input" 
-            {...register('userEmail', { required: true })}
+            {...register('email', { required: true })}
             />
           </div>
 
@@ -78,7 +81,7 @@ const UsestateHook = () => {
           <div className="inputContainer">
             <RiLockPasswordLine className="icon2 passIcon2" />
             <input type="password" placeholder="Password" className="input" 
-             {...register('userPassword', { required: true })}
+             {...register('password', { required: true })}
             />
           
           </div>
@@ -87,7 +90,9 @@ const UsestateHook = () => {
           <button type="submit" className="btn btn-success1">Login</button> <br /> <br />
 
           <span className="text-center" style={{alignContent:'center'}}>
-            Don’t have an Account? <href className="text-primary text-center" onClick={() => navigate('/Signup')}>Sign Up</href>
+            Don’t have an Account? 
+            <Link className="text-primary text-center" to="/Signup">Sign Up</Link>
+            {/* <href className="text-primary text-center" onClick={() => navigate('/Signup')}>Sign Up</href> */}
           </span>
         </form>
       </div>

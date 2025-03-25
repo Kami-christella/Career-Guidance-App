@@ -2,11 +2,18 @@ import  { useState } from 'react';
 import './Dashboard_Styles/CareerTest.css'
 import { useNavigate } from 'react-router-dom';
 import { TbPlayerTrackNext } from "react-icons/tb";
+import { useContext } from 'react';
+import axios from 'axios';
+import { AuthContext } from './context/AuthContext'; 
 
 
 function CareerTest() {
     const [responses, setResponses] = useState({});
     const navigate = useNavigate(); 
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+     const { authToken } = useContext(AuthContext);
+     
     const questions = [
         
         {
@@ -58,8 +65,10 @@ function CareerTest() {
             question: "What industries or fields excite you the most? (Select all that apply)",
             options: ["Technology and Engineering", "Healthcare and Social Work", "Business and Entrepreneurship", "Arts, Media, and Entertainment", "Education and Research"],
             type: "checkbox"
-        }
+        },
+        
     ];
+   
     const handleChange = (questionIndex, option, type) => {
         setResponses((prevResponses) => {
             if (type === "checkbox") {
@@ -76,7 +85,22 @@ function CareerTest() {
         });
     };
 
+    const handleSubmit = async () => {
+        if (Object.keys(responses).length < questions.length) {
+          alert('Please answer all questions before proceeding.');
+          return;
+        }
+        
+        // Store responses in localStorage to pass between components
+        localStorage.setItem('careerTestResponses', JSON.stringify(responses));
+        
+        // Navigate to next assessment
+        navigate('Assessment2');
+      };
+      
+
     return (
+        
         <section className='AllCareerTest'>
         <div className="career-test-container">
             <h2 className="title">Career Interest Assessment</h2>
@@ -100,11 +124,13 @@ function CareerTest() {
                         </div>
                     </div>
                 ))}
-                 <button type="button" className="btn btn-success" onClick={() => navigate('Assessment2')}>Next <TbPlayerTrackNext /></button>
+                 <button type="button" className="btn btn-success" onClick={handleSubmit}>Next <TbPlayerTrackNext /></button>
             </form>
         </div>
         </section>
     );
+   
+        
 }
 
 export default CareerTest;

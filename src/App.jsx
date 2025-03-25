@@ -15,12 +15,15 @@ import CareerTest from './Dashboard/CareerTest';
 import Assessment2 from './Dashboard/Assessment2';
 import Assesment3 from './Dashboard/Assessment3';
 import Orders from './Dashboard/Orders'
+import Results from './Dashboard/Results';
+import { AuthProvider } from './Dashboard/context/AuthContext';
 //import NewDash from './Dashboard/NewDash';
 // import Content2 from './Dashboard/Content2';
 //mozambi....
 
 function App() {
   return (
+    <AuthProvider>
     <BrowserRouter>
       <Routes>
         {/* Public Routes */}
@@ -42,11 +45,13 @@ function App() {
           {/* <Route path='CareerTest' element={<CareerTest />} /> */}
           <Route path='assessment2' element={<Assessment2 />} />
           <Route path='Assessment2/assessment3' element={<Assesment3 />} />
+          <Route path='results' element={<Results />} />
           <Route path='Orders' element={<Orders />} />
           {/* <Route path='content2' element={<Content2 />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 

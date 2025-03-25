@@ -3,11 +3,17 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TbPlayerTrackNext } from "react-icons/tb";
 import './Dashboard_Styles/Assessment2.css'
+import { useContext } from 'react';
+import { AuthContext } from './context/AuthContext';
+
 
 function Assessment2() {
     const [responses, setResponses] = useState({});
     const navigate = useNavigate();
     
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const { authToken } = useContext(AuthContext);
+
     const questions = [
         {
             question: "How comfortable are you with using technology and digital tools? (Select one)",
@@ -107,6 +113,18 @@ function Assessment2() {
             type: "radio"
         }
     ];
+    const handleSubmit = () => {
+        if (Object.keys(responses).length < questions.length) {
+          alert('Please answer all questions before proceeding.');
+          return;
+        }
+        
+        // Store responses in localStorage
+        localStorage.setItem('skillsResponses', JSON.stringify(responses));
+        
+        // Navigate to next assessment
+        navigate('assessment3');
+      };
 
     const handleChange = (questionIndex, option, type) => {
         setResponses((prevResponses) => {
@@ -147,7 +165,7 @@ function Assessment2() {
                         </div>
                     </div>
                 ))}
-                <button type="button" className="btn btn-success" onClick={() => navigate('assessment3')}>Next <TbPlayerTrackNext /></button>
+                <button type="button" className="btn btn-success" onClick={handleSubmit}>Next <TbPlayerTrackNext /></button>
             </form>
         </div>
     );

@@ -2,6 +2,9 @@ import  { useState } from 'react';
 import './Dashboard_Styles/Assessment3.css'
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineSend } from "react-icons/md";
+import { useContext } from 'react';
+import axios from 'axios';
+import { AuthContext } from './context/AuthContext';
 
 
 function Assesment3() {
@@ -66,6 +69,103 @@ function Assesment3() {
         });
     };
 
+    // Add inside your Assessment3 component
+const [isSubmitting, setIsSubmitting] = useState(false);
+const { authToken } = useContext(AuthContext);
+
+
+//const token=  localStorage.getItem('userToken'); 
+const token = authToken || localStorage.getItem('userToken'); 
+
+const handleSubmit = async () => {
+  let tokenValue;
+  
+  try {
+    // If authToken is already an object with a token property
+    if (typeof authToken === 'object' && authToken.token) {
+      tokenValue = authToken.token;
+    } 
+    // If it's a string that might be JSON
+    else {
+      const tokenFromStorage = localStorage.getItem('userToken');
+      const parsedToken = JSON.parse(tokenFromStorage);
+      tokenValue = parsedToken.token || tokenFromStorage;
+    }
+  } catch (e) {
+    // If JSON parsing fails, use the raw token value
+    tokenValue = authToken || localStorage.getItem('userToken');
+  }
+  
+  // const token=  localStorage.getItem('authToken'); 
+ // console.log("Token being sent:", `Bearer ${tokenValue}`);
+    //console.log("Auth Token before submission:", token);
+    if (!tokenValue) {
+        console.error("Auth token is missing!");
+        alert("You must be logged in to submit the assessment.");
+        return;
+    }
+  if (Object.keys(responses).length < questions.length) {
+    alert('Please answer all questions before proceeding.');
+    return;
+  }
+  
+  try {
+    setIsSubmitting(true);
+    
+    // Get all responses from localStorage
+    const careerTestResponses = JSON.parse(localStorage.getItem('careerTestResponses') || '{}');
+    const skillsResponses = JSON.parse(localStorage.getItem('skillsResponses') || '{}');
+    
+    // Prepare data for API
+    const assessmentData = {
+      careerTest: careerTestResponses,
+      skillsAssessment: skillsResponses,
+      personalityAssessment: responses
+    };
+    
+    // Submit to backend API
+    const response = await axios.post(
+      'http://localhost:5000/api/assessments', 
+      assessmentData,
+      {
+        headers: {
+        //   'Content-Type': 'application/json',
+         // 'Authorization': token,
+      'Authorization': `Bearer ${tokenValue}`,
+        }
+      }
+    );
+    
+    // Clear localStorage
+    localStorage.removeItem('careerTestResponses');
+    localStorage.removeItem('skillsResponses');
+    
+    // Get career recommendations
+    const recommendResponse = await axios.post(
+      'http://localhost:5000/api/careers/recommend',
+      { assessmentId: response.data._id },
+      {
+        headers: {
+        //   'Content-Type': 'application/json',
+      // 'Authorization': token
+      
+        'Authorization': `Bearer ${tokenValue}`,
+        }
+      }
+    );
+
+    // Store recommendations and navigate to results page
+    localStorage.setItem('careerRecommendations', JSON.stringify(recommendResponse.data));
+    navigate('/results');
+    
+  } catch (error) {
+    console.error('Error submitting assessment:', error);
+    alert('There was an error submitting your assessment. Please try again.');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
     return (
         <div className="career-test-container1">
             <h2 className="title">Personality & Work Style Assessment</h2>
@@ -89,7 +189,7 @@ function Assesment3() {
                         </div>
                     </div>
                 ))}
-                <button type="button" className="btn btn-success" onClick={() => navigate('/Login')}>Submit <MdOutlineSend /></button>
+                <button type="button" className="btn btn-success" onClick={handleSubmit}>Submit <MdOutlineSend /></button>
             </form>
         </div>
     );
