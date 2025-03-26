@@ -2,3 +2,18 @@
     margin-top: 150px;
     margin-right: 100px;
 } */
+
+.divClassb {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .divClassb.active {
+    background-color: #399a28; /* Bootstrap primary blue */
+    color: white;
+    border-radius: 5px;
+  }
+  
