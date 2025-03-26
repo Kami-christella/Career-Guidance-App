@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IoPersonCircle, IoHomeOutline, IoSettings } from "react-icons/io5";
+import { PiStudentBold } from "react-icons/pi";
 import { GrTest } from "react-icons/gr";
 import { LuNotebookPen } from "react-icons/lu";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -17,33 +18,41 @@ function NewDash() {
         className="bg-body-tertiary p-3 position-fixed top-0 start-0 vh-100 d-flex flex-column border-end"
         style={{ width: "250px" }}
       >
-        <h4 className="text-center">Dashboard</h4>
+        <h4 className=""> <PiStudentBold className="careerIcon" />  CareerPathway</h4>
         <div className="ActiveNavContainer mt-4">
           <div 
             className={`divClassb ${location.pathname === "/dashboard" ? "active" : ""}`} 
             onClick={() => navigate("/dashboard")}
           >
             <IoHomeOutline />
-            <span className="sidei"> Dashboard</span>
+            <span className="sidei"> Guidance Tests</span>
           </div>
-          <div 
+          {/* <div 
             className={`divClassb ${location.pathname === "/dashboard/Career-test" ? "active" : ""}`} 
             onClick={() => navigate("/dashboard/Career-test")}
           >
             <GrTest /> <span className="sidei"> Career Guidance Tests</span>
-          </div>
+          </div> */}
           <div 
             className={`divClassb ${location.pathname === "/dashboard/Assessment2/assessment3/results" ? "active" : ""}`} 
             onClick={() => navigate("/dashboard/Assessment2/assessment3/results")}
           >
-            <LuNotebookPen /> <span className="sidei"> Results</span>
+            
+            <div className="resultsClass">
+            <LuNotebookPen /> 
+              <span className="sidei">Results</span>
+            </div>
+            {/* <span className="sidei"> Results</span> */}
           </div>
           <div 
             className={`divClassb ${location.pathname === "/Settings" ? "active" : ""}`} 
             onClick={() => navigate("/Settings")}
           >
-            <IoSettings />
-            <span className="sidei"> Settings</span>
+            {/* <IoSettings /> */}
+          <div className="settingsClass">
+            <IoSettings/>
+            <span className="sidei">Settings</span>
+            </div>  
           </div>
         </div>
       </aside>

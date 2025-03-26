@@ -8,12 +8,26 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
+    /* gap: 10px; */
+  }
+  .sidei{
+    margin-left: 5px;
+  }
+  .settingsClass{
+    margin-top:-10px;
+  }
+  .resultsClass{
+    margin-top:-10px;
   }
   
+  .careerIcon{
+    color:#28a745;
+  }
+
   .divClassb.active {
-    background-color: #399a28; /* Bootstrap primary blue */
+    background-color:  #28a745; /* Bootstrap primary blue */
     color: white;
     border-radius: 5px;
+    margin-left: -1px;
   }
   
