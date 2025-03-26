@@ -75,7 +75,7 @@ const { authToken } = useContext(AuthContext);
 
 
 //const token=  localStorage.getItem('userToken'); 
-const token = authToken || localStorage.getItem('userToken'); 
+//const token = authToken || localStorage.getItem('userToken'); 
 
 const handleSubmit = async () => {
   let tokenValue;
@@ -137,8 +137,8 @@ const handleSubmit = async () => {
     );
     
     // Clear localStorage
-    localStorage.removeItem('careerTestResponses');
-    localStorage.removeItem('skillsResponses');
+    // localStorage.removeItem('careerTestResponses');
+    // localStorage.removeItem('skillsResponses');
     
     // Get career recommendations
     const recommendResponse = await axios.post(
@@ -156,7 +156,7 @@ const handleSubmit = async () => {
 
     // Store recommendations and navigate to results page
     localStorage.setItem('careerRecommendations', JSON.stringify(recommendResponse.data));
-    navigate('/results');
+    navigate('Results');
     
   } catch (error) {
     console.error('Error submitting assessment:', error);

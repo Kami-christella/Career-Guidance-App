@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './Dashboard_Styles/Results.css'
 //import './Results.css';
+
 
 function Results() {
   const [recommendations, setRecommendations] = useState([]);
@@ -18,16 +20,16 @@ function Results() {
   }, []);
   
   return (
-    <div className="results-container">
-      <h2 className="title">Your Career Recommendations</h2>
+    <div className="results2-container2">
+      <h2 className="title4">Your Career Recommendations</h2>
       
       {recommendations.length === 0 ? (
-        <div className="no-results">
+        <div className="no-results4">
           <p>No recommendations found. Please complete the assessment first.</p>
-          <Link to="/career-test" className="btn btn-primary">Take Assessment</Link>
+          <Link to="/dashboard" className="btn btn-primary">Take Assessment</Link>
         </div>
       ) : (
-        <div className="results-content">
+        <div className="results3-content3">
           <div className="recommendations-list">
             <h3>Top Career Matches</h3>
             <ul className="career-list">

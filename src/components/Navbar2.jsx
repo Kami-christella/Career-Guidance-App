@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { IoHome } from "react-icons/io5";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { RiHandCoinFill } from "react-icons/ri";
 import { GrTest } from "react-icons/gr";
 import { MdEmail } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
 import '../styles/Navbar2.css'
 
 function Navbar2() {
@@ -18,20 +17,28 @@ function Navbar2() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav me-auto"> {/* Changed from mr-auto to me-auto for Bootstrap 5 */}
-                        <li className="nav-item active">
-                            <a className="nav-link" href="/">Home <span className="visually-hidden">(current)</span></a> 
+                        <li className="nav-item">
+                        <Link to="/" className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>
+                                Home
+                        </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/About">About</a>
+                        <Link to="/About" className={`nav-link ${location.pathname === "/About" ? "active" : ""}`}>
+                                About
+                        </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/services">Services</a>
+                        <Link to="/services" className={`nav-link ${location.pathname === "/services" ? "active" : ""}`}>
+                            Services
+                        </Link>
                         </li>
                         {/* <li className="nav-item">
                             <a className="nav-link" href="/CareerTest">Career Test</a>
                         </li> */}
                         <li className="nav-item">
-                            <a className="nav-link" href="/contact">Contact</a>
+                        <Link to="/contact" className={`nav-link ${location.pathname === "/contact" ? "active" : ""}`}>
+                            Contact
+                        </Link>
                         </li>
                     </ul>
                     <span className="navbar-text">
