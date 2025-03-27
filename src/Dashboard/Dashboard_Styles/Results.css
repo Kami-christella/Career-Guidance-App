@@ -20,3 +20,53 @@
 .results3-content3{
     margin-left: 20rem;
 }
+
+
+.career-item {
+    list-style: none; /* Remove default bullet */
+    position: relative;
+    padding-left: 25px; /* Space for the icon */
+  }
+  
+  .career-item::before {
+    content: "✔"; /* Use a checkmark or any other icon */
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    color: green; /* Change color as needed */
+  }
+
+  .skill-item {
+    list-style: none; /* Remove default bullet */
+    position: relative;
+    padding-left: 25px; /* Space for the icon */
+  }
+  
+  .skill-item::before {
+    content: "✔"; /* Use a checkmark or any other icon */
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    color: green; /* Change color as needed */
+  }
+
+  .education-item {
+    list-style: none; /* Remove default bullet */
+    position: relative;
+    padding-left: 25px; /* Space for the icon */
+  }
+  
+  .education-item::before {
+    content: "📚"; /* Use a graduation cap or another icon */
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+  }
+
+  .resultsTitles {
+    font-weight: bold; /* Makes text bold */
+    font-family: Arial, sans-serif; /* Add a valid font */
+  }
+  
+  
+  

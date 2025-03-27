@@ -21,7 +21,7 @@ function NewDash() {
         <h4 className=""> <PiStudentBold className="careerIcon" />  CareerPathway</h4>
         <div className="ActiveNavContainer mt-4">
           <div 
-            className={`divClassb ${location.pathname === "/dashboard" ? "active" : ""}`} 
+            className={`divClassb ${location.pathname === "/dashboard" ||location.pathname === "/dashboard/Assessment2"||location.pathname === "/dashboard/Assessment2/assessment3" ? "active" : ""}`} 
             onClick={() => navigate("/dashboard")}
           >
             <IoHomeOutline />
@@ -45,8 +45,8 @@ function NewDash() {
             {/* <span className="sidei"> Results</span> */}
           </div>
           <div 
-            className={`divClassb ${location.pathname === "/Settings" ? "active" : ""}`} 
-            onClick={() => navigate("/Settings")}
+            className={`divClassb ${location.pathname === "/dashboard/Settings" ? "active" : ""}`} 
+            onClick={() => navigate("/dashboard/Settings")}
           >
             {/* <IoSettings /> */}
           <div className="settingsClass">

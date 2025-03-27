@@ -29,52 +29,56 @@ function Results() {
           <Link to="/dashboard" className="btn btn-primary">Take Assessment</Link>
         </div>
       ) : (
-        <div className="results3-content3">
+       
+        <div className="results3-content3"> <br/> <br/>
           <div className="recommendations-list">
-            <h3>Top Career Matches</h3>
+            <h3 className='resultsTitles'>Top Career Matches🎯</h3>
             <ul className="career-list">
-              {recommendations.map((career, index) => (
-                <li 
-                  key={index} 
-                  className={`career-item ${selectedCareer && career.careerTitle === selectedCareer.careerTitle ? 'active' : ''}`}
-                  onClick={() => setSelectedCareer(career)}
-                >
-                  <div className="career-title">{career.careerTitle}</div>
-                  <div className="match-percentage">{career.matchPercentage}% Match</div>
-                </li>
-              ))}
-            </ul>
+  {recommendations.map((career, index) => (
+    <li 
+      key={index} 
+      className={`career-item ${selectedCareer && career.careerTitle === selectedCareer.careerTitle ? 'active' : ''}`}
+      onClick={() => setSelectedCareer(career)}
+    >
+      <div className="career-title">{career.careerTitle}</div>
+      <div className="match-percentage">{career.matchPercentage}% Match</div>
+    </li>
+  ))}
+</ul>
+
           </div>
           
           {selectedCareer && (
             <div className="career-details">
-              <h3>{selectedCareer.careerTitle}</h3>
+              <h3 className='resultsTitles'>{selectedCareer.careerTitle}✅</h3>
               <div className="match-badge">{selectedCareer.matchPercentage}% Match</div>
               
-              <h4>Description</h4>
+              <h4 className='resultsTitles'>Description📝</h4>
               <p>{selectedCareer.description}</p>
               
-              <h4>Required Skills</h4>
+              <h4 className='resultsTitles'>Required Skills💡</h4>
               <ul className="skills-list">
-                {selectedCareer.skills.map((skill, index) => (
-                  <li key={index}>{skill}</li>
-                ))}
-              </ul>
+  {selectedCareer.skills.map((skill, index) => (
+    <li key={index} className="skill-item">{skill}</li>
+  ))}
+</ul>
+
               
-              <h4>Education Path</h4>
+              <h4 className='resultsTitles'>Education Path🎓</h4>
               <ul className="education-list">
-                {selectedCareer.educationPath.map((edu, index) => (
-                  <li key={index}>{edu}</li>
-                ))}
-              </ul>
+  {selectedCareer.educationPath.map((edu, index) => (
+    <li key={index} className="education-item">{edu}</li>
+  ))}
+</ul>
+
               
-              <h4>Average Salary</h4>
+              <h4 className='resultsTitles'>Average Salary💰</h4>
               <p>{selectedCareer.averageSalary}</p>
               
               <div className="action-buttons">
-                <button className="btn btn-primary">Learn More</button>
-                <button className="btn btn-outline">Save to Profile</button>
-              </div>
+                {/* <button className="btn btn-primary">Learn More</button> */}
+                <button className="btn btn-success">Save to Profile</button> <br /> <br />
+              </div> 
             </div>
           )}
         </div>
