@@ -137,8 +137,8 @@ const handleSubmit = async () => {
     );
     
     // Clear localStorage
-    // localStorage.removeItem('careerTestResponses');
-    // localStorage.removeItem('skillsResponses');
+    localStorage.removeItem('careerTestResponses');
+    localStorage.removeItem('skillsResponses');
     
     // Get career recommendations
     const recommendResponse = await axios.post(

@@ -10,6 +10,24 @@ function NewDash() {
   const navigate = useNavigate();
   const location = useLocation();
   const [showDropdown, setShowDropdown] = useState(false);
+// Declare the variable in a higher scope
+let userName = null;
+
+// Get token from localStorage
+const tokenFromStorage = localStorage.getItem('userToken');
+
+if (tokenFromStorage) {
+  const payload = tokenFromStorage.split('.')[1];
+  const decodedPayload = JSON.parse(atob(payload));
+  userName = decodedPayload?.user?.name;
+}
+
+console.log("User's name is:", userName); // Can access it here
+
+const handleLogoutBtn = async () => {
+  localStorage.removeItem('userToken');
+  navigate('/')
+}
 
   return (
     <div className="container-fluid vh-100 d-flex">
@@ -64,7 +82,7 @@ function NewDash() {
           className="bg-light border-bottom py-2 px-4 position-fixed top-0 w-100 d-flex justify-content-between align-items-center"
           style={{ zIndex: 1050, height: "60px" }}
         >
-          <h5 className="text-dark m-0">Welcome, Christella</h5>
+          <h5 className="text-dark m-0"> <b>Welcome</b>, {userName} </h5>
           <div className="position-fixed">
             <IoPersonCircle 
               style={{ color: "green", fontSize: "3rem", marginLeft: "65rem" }}
@@ -72,8 +90,8 @@ function NewDash() {
             />
             {showDropdown && (
               <div className="profile-dropdown position-absolute bg-white shadow p-2 rounded" style={{ right: "0px", top: "40px" }}>
-                <p className="profile-name mb-2">Christella</p>
-                <button className="logout-button btn btn-danger btn-sm w-100">Logout</button>
+                <p className="profile-name mb-2">{userName}</p>
+                <button className="logout-button btn btn-danger btn-sm w-100"  onClick={handleLogoutBtn}>Logout</button>
               </div>
             )}
           </div>
