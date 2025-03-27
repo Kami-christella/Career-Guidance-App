@@ -74,9 +74,6 @@ const [isSubmitting, setIsSubmitting] = useState(false);
 const { authToken } = useContext(AuthContext);
 
 
-//const token=  localStorage.getItem('userToken'); 
-//const token = authToken || localStorage.getItem('userToken'); 
-
 const handleSubmit = async () => {
   let tokenValue;
   

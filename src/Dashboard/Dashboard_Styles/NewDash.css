@@ -27,7 +27,7 @@
   .divClassb.active {
     background-color:  #28a745; /* Bootstrap primary blue */
     color: white;
-    border-radius: 5px;
-    margin-left: -1px;
+    /* border-radius: 5px;
+    margin-left: -1px; */
   }
   

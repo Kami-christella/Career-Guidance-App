@@ -6,6 +6,7 @@ import { IoPersonOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import {Notify} from "notiflix"
 import '../styles/SignupForm.css';
 
 
@@ -34,11 +35,14 @@ const UsestateHook = () => {
                         }
                     }
                 );
-                alert("Account created successfully");
+                // alert("Account created successfully");
+                Notify.success("Account created sucessfully, You can Login")
+                navigate("/Login")
                 console.log("Account created successfully:", response.data);
             } catch (error) {
                 console.error("Error sending message:", error.response?.data || error.message);
-                alert("Account created successfully");
+               // alert("Account not created successfully");
+               Notify.failure("Account not created")
             }
         };
 

@@ -16,7 +16,8 @@ import Assessment2 from './Dashboard/Assessment2';
 import Assesment3 from './Dashboard/Assessment3';
 import Orders from './Dashboard/Orders'
 import Results from './Dashboard/Results';
-import Settings from './Dashboard/Settings'
+import Settings from './Dashboard/Settings';
+import Profile from './Dashboard/Profile'
 import { AuthProvider } from './Dashboard/context/AuthContext';
 
 //import NewDash from './Dashboard/NewDash';
@@ -49,6 +50,7 @@ function App() {
           <Route path='Assessment2/assessment3' element={<Assesment3 />} />
           <Route path='Assessment2/assessment3/Results' element={<Results />} />
           <Route path='Settings' element={<Settings />} />
+          <Route path='Profile' element={<Profile />} />
           {/* <Route path='content2' element={<Content2 />} /> */}
         </Route>  
       </Routes>

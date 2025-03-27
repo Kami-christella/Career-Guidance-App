@@ -4,6 +4,7 @@ import { PiStudentBold } from "react-icons/pi";
 import { GrTest } from "react-icons/gr";
 import { LuNotebookPen } from "react-icons/lu";
 import { useNavigate, useLocation } from "react-router-dom";
+import {Notify} from "notiflix"
 import "./Dashboard_Styles/NewDash.css";
 
 function NewDash() {
@@ -22,11 +23,10 @@ if (tokenFromStorage) {
   userName = decodedPayload?.user?.name;
 }
 
-console.log("User's name is:", userName); // Can access it here
-
 const handleLogoutBtn = async () => {
   localStorage.removeItem('userToken');
   navigate('/')
+  Notify.success("Logout sucessful, Thank you for using Our System")
 }
 
   return (
@@ -59,6 +59,18 @@ const handleLogoutBtn = async () => {
             <div className="resultsClass">
             <LuNotebookPen /> 
               <span className="sidei">Results</span>
+            </div>
+            {/* <span className="sidei"> Results</span> */}
+          </div>
+           {/* profile */}
+           <div 
+            className={`divClassb ${location.pathname === "/dashboard/Profile" ? "active" : ""}`} 
+            onClick={() => navigate("/dashboard/Profile")}
+          >
+            
+            <div className="resultsClass">
+            <LuNotebookPen /> 
+              <span className="sidei">Recommended</span>
             </div>
             {/* <span className="sidei"> Results</span> */}
           </div>
