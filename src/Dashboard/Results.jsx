@@ -97,12 +97,12 @@ function Results() {
               <p>{selectedCareer.averageSalary}</p>
               
               <div className="action-buttons">
-                <button 
+                {/* <button 
                   className="btn btn-success"
                   onClick={handleSaveToProfile}
                 >
                   Save to Profile
-                </button> 
+                </button>  */}
                 <br /> <br />
               </div> 
             </div>

@@ -223,7 +223,7 @@ body {
     border: none;
     background: transparent;
     border-bottom: 2px solid #198754;
-    color: black; /* Change input text color to black */
+    color: white; /* Change input text color to black */
     outline: none;
     resize: none;
 }

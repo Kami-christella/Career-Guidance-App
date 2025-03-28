@@ -4,11 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css"; // If using Bootstrap
 import "@fortawesome/fontawesome-free/css/all.min.css"; // Import FontAwesome CSS
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import {Notify} from "notiflix"
 
 
 function Contact() {
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
 
     const onsend = async (data) => {
         try {
@@ -20,7 +21,7 @@ function Contact() {
             };
 
             const response = await axios.post(
-                "http://localhost:5001/contact/createContact",
+                "http://localhost:5000/api/contacts/createContact",
                 formData,
                 {
                     headers: {
@@ -28,10 +29,14 @@ function Contact() {
                              }
                 }
             );
-            alert("Contact message sent successfully");
+            reset();
+            // alert("Contact message sent successfully");
+            Notify.success("Contact message sent successfully")
+          
             console.log("Contact message sent successfully:", response.data);
         } catch (error) {
-          alert("Contact message not sent");
+          // alert("Contact message not sent");
+          Notify.failure("Message not sent")
             console.error("Error sending message:", error.response?.data || error.message);
         }
     };

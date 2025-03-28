@@ -161,7 +161,8 @@ function Settings() {
                 Change Password
               </button>
               <br/>
-              <br/>
+              <br/> <br/>
+              <br/> <br /> <br />
             </form>
           </div>
         </div>

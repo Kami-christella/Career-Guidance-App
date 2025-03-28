@@ -55,7 +55,7 @@ function Profile() {
   }, [tokenValue]);
 
   if (isLoading) {
-    return <div>Loading your career recommendations...</div>;
+    return <div className='norecomm'>Loading your career recommendations...</div>;
   }
 
   if (error) {
@@ -90,7 +90,7 @@ function Profile() {
           ))}
         </div>
       ) : (
-        <p>No career recommendations found.</p>
+        <p className='norecomm'>No career recommendations found.</p>
       )}
     </div>
   );
