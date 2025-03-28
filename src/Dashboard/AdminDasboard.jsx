@@ -12,7 +12,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 
 import "./Dashboard_Styles/NewDash.css";
 
-function NewDash() {
+function AdminDashboard() {
   const navigate = useNavigate();
   const location = useLocation();
   const [showDropdown, setShowDropdown] = useState(false);
@@ -41,47 +41,19 @@ const handleLogoutBtn = async () => {
         className="bg-body-tertiary p-3 position-fixed top-0 start-0 vh-100 d-flex flex-column border-end"
         style={{ width: "250px" }}
       >
-        <h4 className=""> <PiStudentBold className="careerIcon" />  CareerPathway</h4>
+        <h4 className=""> <PiStudentBold className="careerIcon" /> CareerPath</h4>
         <div className="ActiveNavContainer mt-4">
           <div 
-            className={`divClassb ${location.pathname === "/dashboard" ||location.pathname === "/dashboard/Assessment2"||location.pathname === "/dashboard/Assessment2/assessment3" ? "active" : ""}`} 
-            onClick={() => navigate("/dashboard")}
+            className={`divClassb ${location.pathname === "/adminDashboard" ? "active" : ""}`} 
+            onClick={() => navigate("/adminDashboard")}
           >
             <IoHomeOutline />
-            <span className="sidei"> Guidance Tests</span>
+            <span className="sidei"> Dashboard</span>
           </div>
-          {/* <div 
-            className={`divClassb ${location.pathname === "/dashboard/Career-test" ? "active" : ""}`} 
-            onClick={() => navigate("/dashboard/Career-test")}
-          >
-            <GrTest /> <span className="sidei"> Career Guidance Tests</span>
-          </div> */}
-          <div 
-            className={`divClassb ${location.pathname === "/dashboard/Assessment2/assessment3/results" ? "active" : ""}`} 
-            onClick={() => navigate("/dashboard/Assessment2/assessment3/results")}
-          >
-            
-            <div className="resultsClass">
-            <LuNotebookPen /> 
-              <span className="sidei">Results</span>
-            </div>
-            {/* <span className="sidei"> Results</span> */}
-          </div>
-           {/* profile */}
-           <div 
-            className={`divClassb ${location.pathname === "/dashboard/Profile" ? "active" : ""}`} 
-            onClick={() => navigate("/dashboard/Profile")}
-          >
-            
-            <div className="resultsClass">
-            <LuNotebookTabs />
-              <span className="sidei">Recommended</span>
-            </div>
-            {/* <span className="sidei"> Results</span> */}
-          </div>
+          
           <div 
             className={`divClassb ${location.pathname === "/dashboard/Settings" ? "active" : ""}`} 
-            onClick={() => navigate("/dashboard/Settings")}
+            onClick={() => navigate("/adminDashboard/adminSettings")}
           >
            
           <div className="settingsClass">
@@ -110,7 +82,7 @@ const handleLogoutBtn = async () => {
             {showDropdown && (
               <div className="profile-dropdown position-absolute bg-white shadow p-2 rounded" style={{ right: "0px", top: "40px" }}>
                 <p className="profile-name mb-2"><FaRegUserCircle className="ClassOfUsers"/>{userName} </p>
-                {/* <span className="userworld">user</span> */}
+                <span className="userworld">Admin</span>
                 <button className="logout-button btn btn-danger btn-sm w-100"  onClick={handleLogoutBtn}>Logout</button>
               </div>
             )}
@@ -126,4 +98,4 @@ const handleLogoutBtn = async () => {
   );
 }
 
-export default NewDash;
+export default AdminDashboard;

@@ -14,15 +14,17 @@ import CareerTest from './Dashboard/CareerTest';
 //import Navbar2 from './components/Navbar2';
 import Assessment2 from './Dashboard/Assessment2';
 import Assesment3 from './Dashboard/Assessment3';
-import Orders from './Dashboard/Orders'
 import Results from './Dashboard/Results';
 import Settings from './Dashboard/Settings';
 import Profile from './Dashboard/Profile'
 import { AuthProvider } from './Dashboard/context/AuthContext';
+import AdminDashboardLayout from './Dashboard/adminDashboardLayout';
+import AdminPage from './Dashboard/adminPage';
+import AdminSettings from './Dashboard/adminSettings';
 
-//import NewDash from './Dashboard/NewDash';
-// import Content2 from './Dashboard/Content2';
 //mozambi....
+//import NewDash from './Dashboard/NewDash';
+//import Content2 from './Dashboard/Content2';
 
 function App() {
   return (
@@ -51,8 +53,16 @@ function App() {
           <Route path='Assessment2/assessment3/Results' element={<Results />} />
           <Route path='Settings' element={<Settings />} />
           <Route path='Profile' element={<Profile />} />
+         
           {/* <Route path='content2' element={<Content2 />} /> */}
-        </Route>  
+        </Route>
+
+       <Route path='/admindashboard' element={<AdminDashboardLayout/>}>
+       <Route index element={<AdminPage />} />
+       <Route path='adminSettings' element={<AdminSettings />} />
+       
+       </Route>
+
       </Routes>
     </BrowserRouter>
     </AuthProvider>
