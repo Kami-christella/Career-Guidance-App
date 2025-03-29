@@ -10,7 +10,7 @@ function Services() {
       <div className="service-wrapper">
         <div className="service">
           <div className="cards">
-            <div className="card">
+            <div className="card5">
             <i className="bi bi-journal-text"></i>
               <h2>Career assessments</h2>
               <p className="txt1">
@@ -19,7 +19,7 @@ function Services() {
               </p>
             </div>
 
-            <div className="card">
+            <div className="card5">
               <i className="bi bi-lightbulb"></i>
               <h2>Career path recommendations</h2>
               <p className="txt2">
@@ -28,7 +28,7 @@ function Services() {
               </p>
             </div>
 
-            <div className="card">
+            <div className="card5">
               <i className="bi bi-pie-chart"></i>
               <h2>Industry insights</h2>
               <p className="txt1">
@@ -37,7 +37,7 @@ function Services() {
               </p>
             </div>
 
-            <div className="card">
+            <div className="card5">
               <i className="bi bi-people"></i>
               <h2>Professional Networking</h2>
               <p className="txt1">
@@ -46,7 +46,7 @@ function Services() {
               </p>
             </div>
 
-            <div className="card">
+            <div className="card5">
               <i className="bi bi-mortarboard"></i>
               <h2>Mentorship programs</h2>
               <p className="txt1">
@@ -55,7 +55,7 @@ function Services() {
               </p>
             </div>
 
-            <div className="card">
+            <div className="card5">
               <i className="bi bi-bar-chart-line"></i>
               <h2>Job Market Trends </h2>
               <p className="txt1">

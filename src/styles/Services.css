@@ -75,7 +75,7 @@ h1 span{
    gap: 30px;
    margin-top: 80px;
 }
-.card{
+.card5{
     height: 350px;
     width: 370px;
     background-color: #1c2335;
@@ -89,7 +89,7 @@ h1 span{
     position: relative;
     overflow: hidden;
 }
-.card::after{
+.card5::after{
     content: "";
     position: absolute;
     top: 150%;
@@ -104,42 +104,42 @@ h1 span{
 
 }
 /* one:after */
-.card:hover::after{
+.card5:hover::after{
     width: 225%;
     top:-100%;
 
 }
-.card i
+.card5 i
 {
     color: #198754;
     margin-top: 30px;
     margin-bottom: 20px;
     font-size: 4.8rem;
 }
-.card h2{
+.card5 h2{
     color: #fff;
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
-.card p{
+.card5 p{
     text-align: left;
     width: 100%;
     margin: 12px 0;
     color: rgba(255, 255, 255, 0.6);
 }
-.card:hover{
+.card5:hover{
     background-color: transparent;
     transform: translateY(-8px);
     /* color of the box borders */
     border-color: #00ff37;
 } 
-.card:hover i{
+.card5:hover i{
     color: #00ff37;
 }
-.card:hover h2,
-.card:hover p {
+.card5:hover h2,
+.card5:hover p {
     color: black; /* Change text color to black on hover */
 }
 @media screen and (max-width:1200px) {
