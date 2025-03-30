@@ -4,6 +4,22 @@
     margin-bottom: 500px;
 }
 
+.icon{
+    font-size: 30px;
+    float: right;
+}
+
+.admiPa{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+       
+.adminMess{
+font-weight: bolder;
+font-size: 20px;
+}
+
 /* .card-title{
     margin-bottom: 100px;
 } */
