@@ -1,8 +1,17 @@
 .adminClass{
     margin-left: 260px;
     margin-top: -500px;
+    margin-bottom: 500px;
 }
 
-.card-title{
+/* .card-title{
     margin-bottom: 100px;
+} */
+
+.card{
+    width: 330px;
+    margin-left: 25px;
+    margin-right: 25px;
+    /* margin-bottom: 50px; */
 }
+
