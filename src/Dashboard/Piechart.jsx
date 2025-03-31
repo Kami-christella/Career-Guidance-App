@@ -40,7 +40,7 @@ const renderCustomizedLabel = ({
 export default function App() {
   return (
     <div className="pieChartContainer">
-      <h2 className="chartTitle">Top Sold Items</h2>
+      <h2 className="chartTitle">Top Career Orientation</h2>
       <PieChart width={400} height={400}>
         <Pie
           data={data}

@@ -5,7 +5,8 @@
 
 .pieChartContainer {
     float: right;
-    margin-left: 70px;
+    /* margin-left: 70px; */
+    margin-right: 20px;
     background-color: white;
     width: 300px;  /* Compact width */
     height: 350px; /* Fixed height for balanced spacing */

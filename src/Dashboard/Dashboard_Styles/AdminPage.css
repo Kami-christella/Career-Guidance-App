@@ -4,6 +4,10 @@
     margin-bottom: 500px;
 }
 
+.card{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .icon{
     font-size: 30px;
     float: right;

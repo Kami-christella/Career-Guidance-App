@@ -4,7 +4,7 @@ import { MdAssessment } from "react-icons/md";
 import { IoIosNotifications } from "react-icons/io";
 import { RiMessage2Fill } from "react-icons/ri";
 import { LuNotebookPen } from "react-icons/lu";
-
+import Piechart from './Piechart'
 
 
 function AdminPage(){
@@ -73,8 +73,10 @@ function AdminPage(){
     </div>
   </div>
 </div>
-
+<br /> <br />
 </div>
+<Piechart/>
+
         </div>
     )
 }
