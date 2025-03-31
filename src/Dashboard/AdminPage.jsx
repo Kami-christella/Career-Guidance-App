@@ -16,8 +16,11 @@ function AdminPage(){
     <div className="card">
       <div className="card-body">
         {/* <h5 className="card-title">Special title treatment</h5> */}
-        <FaUserAlt className='icon'/>
+        
         <span className='adminMess'> Users</span>
+        <div className='sqaure1'>
+        <FaUserAlt className='icon1'/>
+        </div>
         <p className="admiPa">25</p>
        
         {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
@@ -28,7 +31,9 @@ function AdminPage(){
     <div className="card">
       <div className="card-body">
         {/* <h5 className="card-title">Special title treatment</h5> */}
-        <MdAssessment className='icon'/> 
+        <div className='square2'>
+        <MdAssessment className='icon2'/> 
+        </div>
         <span className='adminMess'> Assessments</span>
         <p className="admiPa">40</p>
         {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
@@ -43,10 +48,13 @@ function AdminPage(){
     <div className="card">
       <div className="card-body">
         {/* <h5 className="card-title">Special title treatment</h5> */}
-        <LuNotebookPen className='icon'/> 
+      
+        <div className='square3'>
+     <LuNotebookPen className='icon3'/> 
+     </div>
         <span className='adminMess'>Careers</span>
         <p className="admiPa">5</p>
-        {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+    
       </div>
     </div>
   </div>
@@ -54,7 +62,10 @@ function AdminPage(){
     <div className="card">
       <div className="card-body">
         {/* <h5 className="card-title">Special title treatment</h5> */}
-        <RiMessage2Fill className='icon'/> 
+        <div className='square4'>
+        <RiMessage2Fill className='icon4'/> 
+        </div>
+       
         <span className='adminMess'> Messages</span>
         <p className="admiPa">50</p>
         {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}

@@ -8,6 +8,66 @@
     font-size: 30px;
     float: right;
 }
+.icon1{
+    font-size: 30px;
+    float: right;
+    color: #5140c1;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.sqaure1{
+    height: 40px;
+    width: 40px;
+    background-color: #c3bee5;
+    float: right;
+}
+
+.square2{
+    height: 40px;
+    width: 40px;
+    background-color: greenyellow;
+    float: right; 
+}
+
+.square3{
+    height: 40px;
+    width: 40px;
+    background-color: rosybrown;
+    float: right;
+}
+
+.icon3{
+    font-size: 30px;
+    float: right;
+    color: rgb(255, 0, 119);
+    margin-top: 5px;
+    margin-right: 5px;
+}
+.square4{
+    height: 40px;
+    width: 40px;
+    background-color: #c3c459;
+    float: right;
+}
+
+.icon4{
+    font-size: 30px;
+    float: right;
+    color:#edf008;
+    margin-top: 5px;
+    margin-right: 5px; 
+}
+
+.icon2{
+    font-size: 30px;
+    float: right;
+    color: green;
+    margin-left: 481px;
+    margin-top: -23px;
+  
+}
+
 
 .admiPa{
     margin-top: 10px;
