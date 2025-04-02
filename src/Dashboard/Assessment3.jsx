@@ -161,7 +161,8 @@ const handleSubmit = async () => {
   } finally {
     setIsSubmitting(false);
   }
-};
+}
+;
 
     return (
         <div className="career-test-container1">
