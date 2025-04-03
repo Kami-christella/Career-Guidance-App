@@ -16,6 +16,11 @@ function AdminPage() {
     const [userCount, setUserCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    //fro
+    const [assessmentCount, setAsessmentCount] = useState(0);
+    const [isAssessmentLoading, setIsAssessmentLoading] = useState(true);
+    const [assessmenterror, setAssessmentError] = useState(null);
     const navigate = useNavigate();
     const { authToken } = useContext(AuthContext);
 
@@ -36,12 +41,8 @@ function AdminPage() {
     useEffect(() => {
         const fetchUserCount = async () => {
             try {
-                console.log("Fetching user count...");
-                setIsLoading(true);
-                
-                const endpoint = 'http://localhost:5000/api/count';
-                console.log("Requesting from:", endpoint);
-                console.log("user token",tokenValue)
+                // console.log("Fetching user count...");
+                // setIsLoading(true);
       
 
                 const response = await axios.get('http://localhost:5000/api/count', {
@@ -62,8 +63,34 @@ function AdminPage() {
         };
 
         fetchUserCount();
-    }, []); // Empty dependency array means this effect runs once on component mount
+    }, []); 
+   // counting assessments
+    useEffect(() => {
+        const fetchAssessmentCount = async () => {
+            try {
+                console.log("Fetching user count...");
+                setIsLoading(true);
+      
 
+                const response = await axios.get('http://localhost:5000/api/assessments/admin/count', {
+                    headers: {
+                        'Authorization': `Bearer ${tokenValue}`
+                    }
+                });
+                
+             
+                // Set the user count from the response
+                setAsessmentCount(response.data.count);
+                setIsLoading(false);
+            } catch (err) {
+                console.error('Error fetching assessment count:', err);
+                setError(`Failed to load assessment count: ${err.message}`);
+                setIsLoading(false);
+            }
+        };
+
+        fetchAssessmentCount();
+    }, []); 
     return (
         <div className="adminClass">
             <div className="container">
@@ -90,7 +117,13 @@ function AdminPage() {
                                     <MdAssessment className='icon2'/> 
                                 </div>
                                 <span className='adminMess'>Assessments</span>
-                                <p className="admiPa">40</p>
+                                <p className="admiPa">
+                                {isLoading ? 'Loading...' : 
+                                     error ? error.split(': ')[0] : 
+                                     assessmentCount}
+                                </p>
+                               
+                                {/* <p className="admiPa">40</p> */}
                             </div>
                         </div>
                     </div>
