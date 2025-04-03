@@ -16,11 +16,11 @@ function AdminPage() {
     const [userCount, setUserCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-
-    //fro
+    //for assessments
     const [assessmentCount, setAsessmentCount] = useState(0);
-    const [isAssessmentLoading, setIsAssessmentLoading] = useState(true);
-    const [assessmenterror, setAssessmentError] = useState(null);
+    //for contacts
+    const [contactsCount, setContactsCount] = useState(0);
+
     const navigate = useNavigate();
     const { authToken } = useContext(AuthContext);
 
@@ -43,15 +43,11 @@ function AdminPage() {
             try {
                 // console.log("Fetching user count...");
                 // setIsLoading(true);
-      
-
                 const response = await axios.get('http://localhost:5000/api/count', {
                     headers: {
                         'Authorization': `Bearer ${tokenValue}`
                     }
                 });
-                
-             
                 // Set the user count from the response
                 setUserCount(response.data.count);
                 setIsLoading(false);
@@ -68,7 +64,7 @@ function AdminPage() {
     useEffect(() => {
         const fetchAssessmentCount = async () => {
             try {
-                console.log("Fetching user count...");
+                // console.log("Fetching user count...");
                 setIsLoading(true);
       
 
@@ -90,6 +86,30 @@ function AdminPage() {
         };
 
         fetchAssessmentCount();
+    }, []); 
+    // for contacts
+    useEffect(() => {
+        const fetchContactsCount = async () => {
+            try {
+                // console.log("Fetching user count...");
+                // setIsLoading(true);
+                const response = await axios.get('http://localhost:5000/api/contacts/getContactCount', {
+                    headers: {
+                        'Authorization': `Bearer ${tokenValue}`
+                    }
+                });
+                // Set the user count from the response
+                setContactsCount(response.data.counts.total);
+                console.log(response.data.counts.total)
+                setIsLoading(false);
+            } catch (err) {
+                console.error('Error fetching user count:', err);
+                setError(`Failed to load user count: ${err.message}`);
+                setIsLoading(false);
+            }
+        };
+
+        fetchContactsCount();
     }, []); 
     return (
         <div className="adminClass">
@@ -113,8 +133,8 @@ function AdminPage() {
                     <div className="col-sm-6">
                         <div className="card">
                             <div className="card-body">
-                                <div className='square2'>
-                                    <MdAssessment className='icon2'/> 
+                                <div className='square12'>
+                                    <MdAssessment className='icon12'/> 
                                 </div>
                                 <span className='adminMess'>Assessments</span>
                                 <p className="admiPa">
@@ -149,7 +169,11 @@ function AdminPage() {
                                     <RiMessage2Fill className='icon4'/> 
                                 </div>
                                 <span className='adminMess'>Messages</span>
-                                <p className="admiPa">50</p>
+                                <p className="admiPa">
+                                {isLoading ? 'Loading...' : 
+                                     error ? error.split(': ')[0] : 
+                                     contactsCount}
+                                </p>
                             </div>
                         </div>
                     </div>

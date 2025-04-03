@@ -12,6 +12,7 @@
     font-size: 30px;
     float: right;
 }
+
 .icon1{
     font-size: 30px;
     float: right;
@@ -27,12 +28,22 @@
     float: right;
 }
 
-.square2{
+.square12{
     height: 40px;
     width: 40px;
     background-color: greenyellow;
     float: right; 
 }
+
+.icon12{
+    font-size: 30px;
+    float: right;
+    color: green;
+    /* margin-left: 470px; */
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
 
 .square3{
     height: 40px;
@@ -63,14 +74,6 @@
     margin-right: 5px; 
 }
 
-.icon2{
-    font-size: 30px;
-    float: right;
-    color: green;
-    margin-left: 481px;
-    margin-top: -23px;
-  
-}
 
 
 .admiPa{
@@ -84,14 +87,4 @@ font-weight: bolder;
 font-size: 20px;
 }
 
-/* .card-title{
-    margin-bottom: 100px;
-} */
-
-/* .card{
-    width: 330px;
-    margin-left: 100px;
-    margin-right:  100px;
-    height: 100px;
-} */
 

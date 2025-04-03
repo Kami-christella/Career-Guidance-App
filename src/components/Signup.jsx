@@ -58,7 +58,7 @@ const UsestateHook = () => {
 
            {/* Username Input */}
            <div className="inputContainer">
-            <IoPersonOutline className="icon2 personIcon2" />
+            <IoPersonOutline className="icon10 personIcon10" />
             <input type="text" placeholder="Username" className="input" 
             {...register('name', { required: true })}
             />
@@ -66,7 +66,7 @@ const UsestateHook = () => {
 
           {/* Email Input */}
           <div className="inputContainer">
-            <MdOutlineEmail className="icon2 emailIcon2" />
+            <MdOutlineEmail className="icon10 emailIcon10" />
             <input type="email" placeholder="Email" className="input" 
                {...register('email', { required: true })}
             />
@@ -74,7 +74,7 @@ const UsestateHook = () => {
 
           {/* Password Input */}
           <div className="inputContainer">
-            <RiLockPasswordLine className="icon2 passIcon2" />
+            <RiLockPasswordLine className="icon10 passIcon10" />
             <input type="password" placeholder="Password" className="input" 
             {...register('password', { required: true })}
             />

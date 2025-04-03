@@ -71,7 +71,7 @@ const UsestateHook = () => {
           
           {/* Email Input */}
           <div className="inputContainer">
-            <MdOutlineEmail className="icon2 emailIcon2" />
+            <MdOutlineEmail className="icon10 emailIcon2" />
             <input type="email" placeholder="Email" className="input" 
             {...register('email', { required: true })}
             />
@@ -79,7 +79,7 @@ const UsestateHook = () => {
 
           {/* Password Input */}
           <div className="inputContainer">
-            <RiLockPasswordLine className="icon2 passIcon2" />
+            <RiLockPasswordLine className="icon10 passIcon2" />
             <input type="password" placeholder="Password" className="input" 
              {...register('password', { required: true })}
             />
