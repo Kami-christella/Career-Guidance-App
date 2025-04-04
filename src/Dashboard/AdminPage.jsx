@@ -158,7 +158,7 @@ function AdminPage() {
                                     <LuNotebookPen className='icon3'/> 
                                 </div>
                                 <span className='adminMess'>Careers</span>
-                                <p className="admiPa">5</p>
+                                <p className="admiPa">15</p>
                             </div>
                         </div>
                     </div>
@@ -180,7 +180,7 @@ function AdminPage() {
                 </div>
                 <br /> <br />
             </div>
-            <Piechart/>
+            {/* <Piechart/> */}
             <Barchar/>
         </div>
     );

@@ -1,9 +1,10 @@
 import { ResponsiveBar } from "@nivo/bar";
 
 const data = [
-  { country: "USA", value: 100 },
-  { country: "Germany", value: 80 },
-  { country: "France", value: 50 },
+  { country: "Software Developer", value: 15 },
+  { country: "Data Scientist", value: 14 },
+  { country: "Teacher", value: 9 },
+  { country: "Registered Nurse", value: 3},
 ];
 
 const MyBarChart = () => (
@@ -12,7 +13,7 @@ const MyBarChart = () => (
       data={data}
       keys={["value"]}
       indexBy="country"
-      margin={{ top: 50, right: 30, bottom: 50, left: 60 }}
+      margin={{ top: 50, right: 30, bottom: 90, left: 60 }}
       padding={0.3}
       valueScale={{ type: "linear" }}
       indexScale={{ type: "band", round: true }}
@@ -23,7 +24,7 @@ const MyBarChart = () => (
         tickSize: 5, // Ensures axis ticks are visible
         tickPadding: 5,
         tickRotation: -45,
-        legend: "Country",
+        legend: "",
         legendPosition: "middle",
         legendOffset: 40,
       }}
