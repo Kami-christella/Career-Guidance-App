@@ -42,13 +42,13 @@ const UsestateHook = () => {
                     const userToken=response.data;
                     localStorage.setItem("userToken", JSON.stringify(userToken))
                     const userRole = userToken?.user?.userRole;
-                    navigate("/dashboard")
-                    //  console.log("user Roles",userRole)
-                    // if (userRole === "user"){
-                    //     navigate("/DashboardLayout")
-                    // } else{
-                    //      navigate("/")
-                    // }
+                   // navigate("/dashboard")
+                      console.log("user Roles",userRole)
+                    if (userRole === "Admin"){
+                        navigate("/adminDashboard")
+                    } else{
+                         navigate("/dashboard")
+                    }
 
                 //alert("Account logged In  successfully");
                 console.log("Account logged In successfully:", response.data);
