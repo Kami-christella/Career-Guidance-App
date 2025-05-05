@@ -3,7 +3,7 @@ import image1 from '../assets/images/c2.jfif';
 function About() {
     return (
         <div>
-            <br /> <br /> <br /> <br /> <br /> <br />
+            <br/> <br/> <br/> <br/> <br/> <br/>
 
             <div className="container">
                 <div className="row">
