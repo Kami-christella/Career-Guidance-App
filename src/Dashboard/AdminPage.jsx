@@ -100,7 +100,7 @@ function AdminPage() {
                 });
                 // Set the user count from the response
                 setContactsCount(response.data.counts.total);
-                console.log(response.data.counts.total)
+              
                 setIsLoading(false);
             } catch (err) {
                 console.error('Error fetching user count:', err);

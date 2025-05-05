@@ -136,16 +136,16 @@ const UsestateHook = () => {
       );
 
       // Debug logging - inspect what the server is returning
-      console.log("FULL RESPONSE FROM SERVER:", response);
-      console.log("RESPONSE DATA:", response.data);
+      // console.log("FULL RESPONSE FROM SERVER:", response);
+      // console.log("RESPONSE DATA:", response.data);
       
       // Check if response.data has expected structure
       if (response.data) {
-        console.log("USER ID:", response.data._id);
-        console.log("USER NAME:", response.data.name);
-        console.log("USER EMAIL:", response.data.email);
-        console.log("USER ROLE:", response.data.role);
-        console.log("TOKEN:", response.data.token ? "Token exists" : "No token");
+        // console.log("USER ID:", response.data._id);
+        // console.log("USER NAME:", response.data.name);
+        // console.log("USER EMAIL:", response.data.email);
+        // console.log("USER ROLE:", response.data.role);
+        // console.log("TOKEN:", response.data.token ? "Token exists" : "No token");
       }
 
       Notify.success("Login successful");
@@ -158,10 +158,10 @@ const UsestateHook = () => {
       console.log("USER ROLE FOR NAVIGATION:", userRole);
       
       if (userRole === "admin") {
-        console.log("Navigating to admin dashboard");
+        // console.log("Navigating to admin dashboard");
         navigate("/adminDashboard");
       } else {
-        console.log("Navigating to regular dashboard");
+        // console.log("Navigating to regular dashboard");
         navigate("/dashboard");
       }
       
