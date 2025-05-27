@@ -405,6 +405,29 @@ const handleSubmit = async () => {
       }
     );
 
+    const responseAI = await axios.post(
+                    `https://openrouter.ai/api/v1/chat/completions`,
+                    {
+                        model: "openai/gpt-3.5-turbo",
+                        messages: [
+                            {
+                                role: "user",
+                                content: `Based on the following assessments, provide structured career advice in JSON format with categories (Career Interest, Skills and Competency, Personality and Work Style):\n\nCareer Interest Test:\n${JSON.stringify(careerTestResponses)}\n\nSkills and Competency Assessment:\n${JSON.stringify(skillsResponses)}\n\nPersonality and Work Style:\n${JSON.stringify(responses)}\n\n Please format your response as a JSON object with a 'recommendations' array where each item has: careerTitle, matchPercentage, description, educationPath, averageSalary and skills fields.`
+                            }
+                        ]
+                    },
+                    {
+                        headers: {
+                            'Authorization': `Bearer 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`,
+                            'Content-Type': 'application/json',
+                            'HTTP-Referer': 'http://localhost:3000',
+                            'X-Title': 'My OpenRouter App'
+                        }
+                    }
+                );
+    
+                console.log('AI response:', responseAI.data);
+
     // Store recommendations and navigate to results page
     localStorage.setItem('careerRecommendations', JSON.stringify(recommendResponse.data));
     navigate('Results');
