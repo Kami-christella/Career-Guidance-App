@@ -405,26 +405,36 @@ const handleSubmit = async () => {
       }
     );
 
-    const responseAI = await axios.post(
-                    `https://openrouter.ai/api/v1/chat/completions`,
-                    {
-                        model: "openai/gpt-3.5-turbo",
-                        messages: [
-                            {
-                                role: "user",
-                                content: `Based on the following assessments, provide structured career advice in JSON format with categories (Career Interest, Skills and Competency, Personality and Work Style):\n\nCareer Interest Test:\n${JSON.stringify(careerTestResponses)}\n\nSkills and Competency Assessment:\n${JSON.stringify(skillsResponses)}\n\nPersonality and Work Style:\n${JSON.stringify(responses)}\n\n Please format your response as a JSON object with a 'recommendations' array where each item has: careerTitle, matchPercentage, description, educationPath, averageSalary and skills fields.`
-                            }
-                        ]
-                    },
-                    {
-                        headers: {
-                            'Authorization': `Bearer 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`,
-                            'Content-Type': 'application/json',
-                            'HTTP-Referer': 'http://localhost:3000',
-                            'X-Title': 'My OpenRouter App'
-                        }
-                    }
-                );
+    // Fixed version with proper error handling and corrected headers
+try {
+    const responseAI = await axios.post( 
+        'https://openrouter.ai/api/v1/chat/completions',  // Remove template literals for static URL
+        { 
+            model: "openai/gpt-3.5-turbo", // Use standard model name
+            messages: [ 
+                { 
+                    role: "user", 
+                    content: `Based on the following assessments, provide structured career advice in JSON format with categories (Career Interest, Skills and Competency, Personality and Work Style):\n\nCareer Interest Test:\n${JSON.stringify(careerTestResponses)}\n\nSkills and Competency Assessment:\n${JSON.stringify(skillsResponses)}\n\nPersonality and Work Style:\n${JSON.stringify(responses)}\n\n Please format your response as a JSON object with a 'recommendations' array where each item has: careerTitle, matchPercentage, description, educationPath, averageSalary and skills fields.` 
+                } 
+            ] 
+        }, 
+        { 
+            headers: { 
+                'Authorization': 'Bearer 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', 
+                'Content-Type': 'application/json',
+                'HTTP-Referer': 'http://localhost:3000',  // For browser requests
+                'X-Title': 'My OpenRouter App'
+            } 
+        } 
+    );
+    
+    console.log('AI response:', responseAI.data);
+    return responseAI.data;
+    
+} catch (error) {
+    console.error('OpenRouter API Error:', error.response?.data || error.message);
+    throw error;
+}
     
                 console.log('AI response:', responseAI.data);
 
@@ -441,6 +451,7 @@ const handleSubmit = async () => {
 }
 ;
 //end
+
 
     return (
         <div className="career-test-container1">
