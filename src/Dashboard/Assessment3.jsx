@@ -356,8 +356,8 @@ Please format your response as a JSON object with a 'recommendations' array wher
         {
           headers: {
             Authorization:
-           
-            "Bearer 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",
+           "Bearer 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",
+            //"Bearer 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",
             "Content-Type": "application/json",
             "HTTP-Referer": "http://localhost:3000",
             "X-Title": "My OpenRouter App",
