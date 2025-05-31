@@ -6,6 +6,7 @@ import './Dashboard_Styles/Results.css'
 function Results() {
   const [recommendations, setRecommendations] = useState([]);
   const [selectedCareer, setSelectedCareer] = useState(null);
+  const [aiRecommendations, setAiRecommendations] = useState([]);
   const navigate = useNavigate();
   
   useEffect(() => {
