@@ -356,7 +356,7 @@ Please format your response as a JSON object with a 'recommendations' array wher
         {
           headers: {
             Authorization:
-            //   "Bearer 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",
+           
             "Bearer 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",
             "Content-Type": "application/json",
             "HTTP-Referer": "http://localhost:3000",
