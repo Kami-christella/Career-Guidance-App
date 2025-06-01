@@ -193,7 +193,7 @@ import { useState, useEffect, useContext, useRef } from 'react';
 import { AuthContext } from './context/AuthContext';
 import axios from 'axios';
 import "./Dashboard_Styles/AdminQuestion.css";
-import * as XLSX from 'xlsx';
+// import * as XLSX from 'xlsx';
 
 function QuestionManager() {  
   const [questions, setQuestions] = useState([]);
